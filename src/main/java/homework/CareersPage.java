@@ -2,7 +2,6 @@ package homework;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,10 +11,10 @@ public class CareersPage extends Page{
 
     public CareersPage(WebDriver webDriver){
 
-        super(webDriver, URL);
+        super(webDriver);
     }
 
-    @FindBy(css = "#gn > ul > li.first-level.active > a")
+    @FindBy(css = "#p4-section-subnav > li.second-level.dropdown.active > a")
     public WebElement careers;
 
     @FindBy(css = "#p4-section-subnav > li.second-level.dropdown.active.open > ul > li:nth-child(2) > a")
@@ -23,7 +22,11 @@ public class CareersPage extends Page{
 
     public CareersPage hoverCarreers(){
 
-        new Actions(webDriver).moveToElement(careers).build().perform();
+        new Actions(webDriver)
+                .moveToElement(careers)
+                .build()
+                .perform();
+
         return this;
     }
 

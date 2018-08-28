@@ -7,10 +7,10 @@ public class Page {
 
     protected WebDriver webDriver;
 
-    public Page(WebDriver webDriver, String url){
+    public Page(WebDriver webDriver){
 
         this.webDriver = webDriver;
-        webDriver.get(url);
+        webDriver.manage().window().fullscreen();
         PageFactory.initElements(webDriver, this);
     }
 }

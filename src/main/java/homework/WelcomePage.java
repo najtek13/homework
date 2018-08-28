@@ -10,14 +10,20 @@ public class WelcomePage extends Page{
 
     public WelcomePage(WebDriver webDriver){
 
-        super(webDriver, URL);
+        super(webDriver);
     }
 
-    @FindBy(linkText = "Kariera")
+    @FindBy(css = "#about > li:nth-child(4) > a")
     private WebElement careers;
 
-    @FindBy(linkText = "OK")
+    @FindBy(css = "#cookie-consent > span > a.btn.btn-primary")
     private WebElement cookiesOK;
+
+    public WelcomePage open(){
+
+        webDriver.get(URL);
+        return this;
+    }
 
     public CareersPage goToCareers(){
 
@@ -28,6 +34,6 @@ public class WelcomePage extends Page{
     public WelcomePage acceptCookies(){
 
         cookiesOK.click();
-        return new WelcomePage(webDriver);
+        return this;
     }
 }
